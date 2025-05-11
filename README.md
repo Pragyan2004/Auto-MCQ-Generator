@@ -1,4 +1,4 @@
-#Auto MCQ Generator using LangChain, Groq API (LLaMA-3), and Flask
+# Auto MCQ Generator using LangChain, Groq API (LLaMA-3), and Flask
 
 #Project Overview:
 Developed a full-stack AI-powered web application that automatically generates Multiple Choice Questions (MCQs) from uploaded documents using LangChain and Groq’s LLaMA-3 models. This solution is designed to assist educators, trainers, content creators, and e-learning platforms by turning raw educational materials into quizzes and assessments within seconds.
@@ -56,6 +56,7 @@ GROQ_API_KEY=your_groq_api_key
 # Run the App
 
 python app.py
+
   Go to http://localhost:5000 in your browser.
 
 # Screenshots
