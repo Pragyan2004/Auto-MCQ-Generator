@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h2 class="slide-in">Transform Your Content into Quizzes Instantly</h2>
+        <p class="fade-in">Upload your PDF, DOCX, or text files and let AI generate multiple-choice questions automatically.</p>
+        <a href="{{ url_for('upload') }}" class="btn pulse">Get Started</a>
+    </div>
+    <div class="hero-image">
+        <div class="floating-image"></div>
+    </div>
+</section>
+
+<section class="how-it-works">
+    <h2 class="section-title">How It Works</h2>
+    <div class="steps">
+        <div class="step">
+            <div class="step-number">1</div>
+            <h3>Upload Your File</h3>
+            <p>Upload your PDF, DOCX, or plain text file containing the content.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">2</div>
+            <h3>AI Processes Content</h3>
+            <p>Our advanced AI analyzes your text and understands key concepts.</p>
+        </div>
+        <div class="step">
+            <div class="step-number">3</div>
+            <h3>Receive MCQs</h3>
+            <p>Download professionally crafted multiple-choice questions.</p>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials">
+    <h2 class="section-title">What Our Users Say</h2>
+    <div class="testimonial-cards">
+        <div class="testimonial-card">
+            <p>"This tool saved me hours of work creating quizzes for my students!"</p>
+            <div class="author">- Sarah, Educator</div>
+        </div>
+        <div class="testimonial-card">
+            <p>"The quality of questions generated is impressive and accurate."</p>
+            <div class="author">- Mark, Corporate Trainer</div>
+        </div>
+    </div>
+</section>
+{% endblock %}

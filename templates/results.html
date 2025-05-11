@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Generated MCQs{% endblock %}
+
+{% block content %}
+<section class="results-section">
+    <h2 class="section-title">Your Generated MCQs</h2>
+    
+    <div class="results-actions">
+        <a href="{{ url_for('download_file', filename=pdf_filename) }}" class="btn download-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Download PDF
+        </a>
+        <a href="{{ url_for('download_file', filename=txt_filename) }}" class="btn download-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Download Text
+        </a>
+    </div>
+    
+    <div class="mcqs-container">
+        {% for mcq in mcqs.split('## MCQ') %}
+            {% if mcq.strip() %}
+                <div class="mcq-card">
+                    <div class="mcq-content">
+                        {{ mcq|replace('\n', '<br>')|safe }}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    
+    <div class="generate-again">
+        <a href="{{ url_for('upload') }}" class="btn">Generate More MCQs</a>
+    </div>
+</section>
+{% endblock %}

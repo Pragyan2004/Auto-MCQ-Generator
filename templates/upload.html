@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Generate MCQs{% endblock %}
+
+{% block content %}
+<section class="upload-section">
+    <h2 class="section-title">Generate Multiple-Choice Questions</h2>
+    <div class="upload-container">
+        <form id="upload-form" action="{{ url_for('generate_mcqs') }}" method="POST" enctype="multipart/form-data">
+            <div class="file-upload">
+                <label for="file" class="file-label">
+                    <div class="file-upload-area" id="drop-area">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <p>Drag & drop your file here or click to browse</p>
+                        <input type="file" id="file" name="file" accept=".pdf,.docx,.txt" required>
+                    </div>
+                </label>
+                <div id="file-info" class="file-info"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="num_questions">Number of Questions:</label>
+                <input type="number" id="num_questions" name="num_questions" min="1" max="20" value="5" required>
+            </div>
+            
+            <button type="submit" class="btn submit-btn">Generate MCQs</button>
+        </form>
+        
+        <div class="supported-formats">
+            <h3>Supported File Formats:</h3>
+            <ul>
+                <li>PDF (.pdf)</li>
+                <li>Microsoft Word (.docx)</li>
+                <li>Plain Text (.txt)</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<div class="loading-modal" id="loading-modal">
+    <div class="loading-content">
+        <div class="spinner"></div>
+        <p>Generating your MCQs. This may take a moment...</p>
+    </div>
+</div>
+{% endblock %}
